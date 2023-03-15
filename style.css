@@ -24,6 +24,7 @@
      url("fonts/Fraunces/Fraunces-Bold.woff") format("woff"),
      url("fonts/Fraunces/Fraunces-Bold.ttf") format("truetype");
 }
+
 * {
     padding: 0;
     margin: 0;
@@ -54,6 +55,11 @@ body {
     color: var(--primary-light)
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .btn {
     text-decoration: none;
     color: white;
@@ -82,15 +88,16 @@ body {
 
 .product {
     width: 90%;
-    max-width: 600px;
+    max-width: 400px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
-
-.product__photo {
-    max-width: 100%;
-    border-radius: 10px 10px 0 0;
+    
+.product__photo img{
+ /* to avoid that little gap at the bottom of inline elements , especially for desktop*/
+	display: block;
+	border-radius: 10px 10px 0 0;
 }
 
 .product__content {
@@ -147,16 +154,19 @@ body {
     }
 
     .product {
+    	max-width: 600px;
         display: flex;
     }
 
     .product__photo {
-        content: url("images/image-product-desktop.jpg");
         width: 50%;
-        object-fit: cover;
-        border-radius: 10px 0 0 10px;
         flex: 1 1 50%;
     }
+    
+       .product__photo img{
+        object-fit: cover;
+        border-radius: 10px 0 0 10px;
+        }
 
     .product__content {
         padding: 3rem;
